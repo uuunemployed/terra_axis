@@ -1,0 +1,32 @@
+.nav {
+  &__links {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__link {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    height: 100%;
+    line-height: 64px;
+    position: relative;
+    width: auto;
+    width: fit-content;
+  }
+}
+
+.is-active {
+  color: #a7a746;
+}
+
+.is-active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #a7a746;
+  bottom: 0;
+}

@@ -1,0 +1,166 @@
+@use "/src/styles/mixins" as *;
+
+$light: (
+  bg-color: #ffffff,
+  tx-color: #1A283B,
+  stx-color: #4A5565,
+);
+
+$dark: (
+  bg-color: #0f1821,
+  tx-color: #ffffff,
+  stx-color: #d7dbbd,
+);
+
+:root {
+  @each $var, $value in $light {
+    --#{$var}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $var, $value in $dark {
+    --#{$var}: #{$value};
+  }
+}
+
+.about {
+  padding: 4rem 0;
+  background-color: var(--bg-color);
+
+  @media (min-width: 640px) {
+    padding: 5rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__imageCol {
+    order: 2;
+
+    @media (min-width: 1024px) {
+      order: 1;
+    }
+  }
+
+  &__contentCol {
+    order: 1;
+
+    @media (min-width: 1024px) {
+      order: 2;
+    }
+  }
+
+  &__imageWrapper {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+    @media (min-width: 640px) {
+      height: 400px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 500px;
+    }
+  }
+
+  &__imageBorder {
+    position: absolute;
+    inset: 0;
+    border: 4px solid #a7a746;
+    transform: translate(-16px, -16px);
+    z-index: -10;
+  }
+
+  &__title {
+    color: var(--tx-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: 640px) {
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__text {
+    color: var(--stx-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+
+    @media (min-width: 640px) {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (min-width: 640px) {
+      gap: 1.5rem;
+    }
+  }
+
+  &__stat {
+    text-align: center;
+  }
+
+  &__statNumber {
+    font-size: 2rem;
+    color: #a7a746;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 640px) {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 3rem;
+    }
+  }
+
+  &__statLabel {
+    font-size: 0.75rem;
+    color: var(--stx-color);
+
+    @media (min-width: 640px) {
+      font-size: 0.9rem;
+    }
+  }
+}

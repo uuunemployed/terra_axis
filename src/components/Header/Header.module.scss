@@ -1,0 +1,354 @@
+@use "../../styles/mixins" as *;
+
+.header {
+  background-color: #1a283b;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px #4a5565 solid;
+    @include inlinePadding;
+  }
+
+  &__logo {
+    padding-block: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__companyName {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__slogan {
+    color: #a7a746;
+    font-size: 6px;
+    font-weight: 400;
+  }
+
+  &__nav {
+    display: none;
+    height: 100%;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
+
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &__menuToggle,
+  &__themeBtn {
+    all: unset;
+
+    svg {
+      stroke: #fff;
+      width: 20px;
+      height: 20px;
+
+      @include onTablet {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include onTablet {
+    gap: 24px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 32px;
+  height: 64px;
+
+  @include onDesktop {
+    display: flex;
+  }
+
+  &__schedule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #2a3a4f4d;
+  }
+
+  &__icon {
+    stroke: #a7a746;
+  }
+
+  &__text {
+    color: #fff;
+  }
+
+  &__themeBtn {
+    all: unset;
+
+    svg {
+      stroke: #fff;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.mobileMenu {
+  margin-top: 5px;
+  z-index: 1;
+  @include inlinePadding;
+}
+
+// $color-dark-bg: #1a283b;
+// $color-accent: #a7a746;
+// $transition: 0.3s ease;
+
+// @import "/src/styles/mixins";
+
+// // Dark theme wrapper
+// html.dark {
+//   --bg: #1a283b;
+//   --text: #fff;
+//   --line: rgba(#a7a746, 0.1);
+//   --bg-soft: rgba(255, 255, 255, 0.1);
+// }
+
+// :root {
+//   --bg: #fff;
+//   --second: #1a283b;
+//   --text: #4A5565;
+//   --help: #A7A746;
+// }
+
+// // Header main
+// .header {
+//   position: fixed;
+//   inset: 0 0 auto 0;
+//   z-index: 40;
+//   background: var(--second);
+//   border-bottom: 1px solid var(--line);
+//   transition: $transition;
+//   padding-block: 16px;
+//   @include inlinePadding;
+
+//   &.scrolled {
+//     backdrop-filter: blur(12px);
+//     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+//   }
+// }
+
+// // Container
+// .container {
+//   max-width: 1280px;
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 24px;
+// }
+
+// // Logo
+
+// .logoBlock {
+//   height: 32px;
+// }
+
+// // .logo {
+// //   height: 40px;
+// //   @media (min-width: 640px) { height: 48px; }
+// //   @media (min-width: 1024px) { height: 60px; }
+// // }
+
+// .companyName {
+//   color: var(--bg);
+// }
+
+// .logoText {
+//   margin-top: 8px;
+//   color: $color-accent;
+//   font-size: 8px;
+//   margin-top: 8px;
+// }
+
+// // Desktop navigation
+// .desktopNav {
+//   display: none;
+//   gap: 24px;
+//   align-items: center;
+//   @include onDesktop {
+//     display: flex;
+//   }
+// }
+
+// .link {
+//   position: relative;
+//   padding: 8px 0;
+//   color: var(--text);
+//   font-size: 12px;
+//   text-decoration: none;
+//   transition: $transition;
+
+//   &:hover {
+//     color: $color-accent;
+
+//     &::after {
+//       width: 100%;
+//     }
+//   }
+
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 0;
+//     height: 2px;
+//     background: $color-accent;
+//     transition: $transition;
+//   }
+// }
+
+// .schedule {
+//   display: flex;
+//   align-items: center;
+//   gap: 6px;
+//   padding: 6px 12px;
+//   background: var(--bg-soft);
+//   border-radius: 6px;
+//   color: var(--text);
+// }
+
+// .scheduleIcon {
+//   color: $color-accent;
+// }
+
+// // Theme buttons
+// .themeBtn,
+// .themeBtnMobile {
+//   all: unset;
+//   height: 20px;
+//   transition: $transition;
+//   svg {
+//     width: 20px;
+//     height: 20px;
+//     stroke: #fff;
+//   }
+// }
+
+// // CTA mobile
+// .ctaMobile {
+//   padding: 4px 8px;
+//   line-height: 30px;
+//   border: 2px solid $color-accent;
+//   color: $color-accent;
+//   font-size: 14px;
+//   text-decoration: none;
+//   transition: $transition;
+
+//   &:hover {
+//     background: $color-accent;
+//     color: white;
+//   }
+// }
+
+// // Mobile controls
+// .mobileControls {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+//   @media (min-width: 1024px) {
+//     display: none;
+//   }
+// }
+
+// .menuToggle {
+//   all: unset;
+//   height: 20px;
+//   border-radius: 6px;
+//   transition: $transition;
+
+//   &:hover {
+//     background: var(--bg-soft);
+//   }
+//   svg {
+//     width: 20px;
+//     height: 20px;
+//         stroke: #fff;
+//   }
+// }
+
+// // Mobile menu
+// .mobileMenu {
+//   background: var(--bg);
+//   border-top: 1px solid var(--line);
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+// }
+
+// .mobileNav {
+//   padding: 20px;
+// }
+
+// .mobileLink {
+//   display: block;
+//   padding: 12px;
+//   border-radius: 6px;
+//   text-decoration: none;
+//   color: var(--text);
+//   transition: $transition;
+
+//   &:hover {
+//     background: var(--bg-soft);
+//     color: $color-accent;
+//   }
+// }
+
+// .mobileCTA {
+//   margin-top: 10px;
+//   display: block;
+//   padding: 12px;
+//   text-align: center;
+//   border: 2px solid $color-accent;
+//   color: $color-accent;
+//   text-decoration: none;
+//   transition: $transition;
+
+//   &:hover {
+//     background: $color-accent;
+//     color: white;
+//   }
+// }
+
+// .mobileInfo {
+//   margin-top: 20px;
+//   padding-top: 15px;
+//   border-top: 1px solid var(--line);
+// }
+
+// .mobileMail,
+// .mobileSchedule {
+//   display: flex;
+//   align-items: center;
+//   gap: 6px;
+//   font-size: 12px;
+//   color: gray;
+//   text-decoration: none;
+// }
