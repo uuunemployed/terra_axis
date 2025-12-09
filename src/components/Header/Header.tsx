@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, Clock } from "lucide-react";
-import { useTheme } from "../../contexts/ThemeContext";
+import { useTheme } from "../../shared/hooks/useTheme";
 import styles from "./Header.module.scss";
 import { NavigateLinks } from "../NavigateLinks";
 import { CalculatorButton } from "../CalculatorButton";
@@ -18,9 +18,10 @@ export function Header() {
 
   return (
     <header
-      className={`${styles.header} ${isScrolled ? styles["header--scrolled"] : ""
-        }`}
-      style={{ height: isMenuOpen ? '100vh' : undefined}}
+      className={`${styles.header} ${
+        isScrolled ? styles["header--scrolled"] : ""
+      }`}
+      style={{ height: isMenuOpen ? "100vh" : undefined }}
     >
       <div className={styles.header__container}>
         <div className={styles.header__logo}>
@@ -63,7 +64,7 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className={styles.mobileMenu} style={{ flex: '1'}}>
+        <div className={styles.mobileMenu} style={{ flex: "1" }}>
           <NavigateLinks isMenuOpen={isMenuOpen} />
         </div>
       )}

@@ -1,0 +1,212 @@
+@use "/src/styles/mixins" as *;
+
+$light: (
+  bg-color: #ffffff,
+  text-color: #364153,
+  title-color: #1A283B,
+  secondText-color: #4A5565,
+);
+
+$dark: (
+  bg-color: #1a283b,
+  text-color: #D7DBBD,
+  title-color: #FFFFFF,
+  secondText-color: #D7DBBD
+);
+
+:root {
+  @each $var, $value in $light {
+    --#{$var}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $var, $value in $dark {
+    --#{$var}: #{$value};
+  }
+}
+
+.testimonials {
+  background-color: #1a283b;
+  padding: 4rem 0;
+
+  @include onTablet {
+    padding: 5rem 0;
+  }
+
+  @include onDesktop {
+    padding: 6rem 2rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__subtitle {
+    color: #a7a746;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    color: #fff;
+    margin-top: 0.5rem;
+    font-size: 2rem;
+
+    @include onTablet {
+      font-size: 2.5rem;
+    }
+
+    @include onDesktop {
+      font-size: 3rem;
+    }
+  }
+
+  &__underline {
+    width: 4rem;
+    height: 4px;
+    background-color: #a7a746;
+    margin: 1rem auto 0;
+  }
+
+  &__slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    touch-action: pan-y;
+    padding: 1rem 0;
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 4rem;
+      align-self: stretch;
+      background: #a7a746;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: #fff;
+      }
+
+      &:hover {
+        background: #8a8a38;
+      }
+    }
+  }
+
+  &__card {
+    background: var(--bg-color);
+    padding: 2rem;
+    width: 100%;
+    max-width: 60rem;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    min-height: 432px;
+
+    @include onTablet {
+      padding: 3rem;
+    }
+
+    @include onDesktop {
+      padding: 4rem;
+    }
+  }
+
+  &__quote {
+    color: #a7a746;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    @include onTablet {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    gap: 0.4rem;
+    margin: 1.5rem 0;
+  }
+
+  &__star {
+    fill: #a7a746;
+    stroke: #a7a746;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    @include onTablet {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__image {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    color: var(--title-color);
+  }
+
+  &__position {
+    color: var(--secondText-color);
+    font-size: 0.9rem;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 3rem;
+  }
+
+  &__dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: rgba(215, 219, 189, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: width 0.3s;
+
+    &.active {
+      width: 2rem;
+      background: #a7a746;
+    }
+  }
+}

@@ -1,5 +1,29 @@
 @use "/src/styles/mixins" as *;
 
+$light: (
+  card-color: #ffffff,
+  title-color: #1a283b,
+  text-color: #4a5565,
+);
+
+$dark: (
+  card-color: #0F1821,
+  title-color: #ffffff,
+  text-color: #d7dbbd,
+);
+
+:root {
+  @each $var, $value in $light {
+    --#{$var}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $var, $value in $dark {
+    --#{$var}: #{$value};
+  }
+}
+
 .why-us {
   padding: 3rem 0;
   background: #1a283b;
@@ -41,7 +65,7 @@
 }
 
 .why-us__subtitle {
-  color: #A7A746;
+  color: #a7a746;
   font-size: 10px;
   letter-spacing: 0.1em;
 
@@ -67,7 +91,7 @@
 .why-us__underline {
   width: 48px;
   height: 4px;
-  background: #A7A746;
+  background: #a7a746;
   margin: 0.75rem auto 0;
 
   @include onTablet {
@@ -92,7 +116,7 @@
 }
 
 .why-us__card {
-  background: #0f1821;
+  background: var(--card-color);
   border: 1px solid rgba(167, 167, 70, 0.2);
   padding: 1.25rem;
   text-align: center;
@@ -102,7 +126,7 @@
   align-items: center;
 
   &:hover {
-    border-color: #A7A746;
+    border-color: #a7a746;
     box-shadow: 0 0 20px rgba(167, 167, 70, 0.3);
   }
 
@@ -119,7 +143,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 2px solid #A7A746;
+  border: 2px solid #a7a746;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,7 +151,7 @@
   transition: all 0.3s ease;
 
   .why-us__card:hover & {
-    background: #A7A746;
+    background: #a7a746;
   }
 
   @include onTablet {
@@ -144,7 +168,7 @@
 .why-us__icon {
   width: 28px;
   height: 28px;
-  color: #A7A746;
+  color: #a7a746;
   transition: color 0.3s ease;
 
   .why-us__card:hover & {
@@ -163,7 +187,7 @@
 }
 
 .why-us__card-title {
-  color: #fff;
+  color: var(--title-color);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 
@@ -173,7 +197,7 @@
 }
 
 .why-us__card-desc {
-  color: #d7dbbd;
+  color: var(--text-color);
   font-size: 0.75rem;
   line-height: 1.5;
 
