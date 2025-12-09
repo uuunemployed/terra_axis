@@ -1,20 +1,67 @@
-import { Map, Mountain, Building, Home, Droplet, FlaskConical, Scan, Camera } from "lucide-react";
+import {
+  Map,
+  Mountain,
+  Building,
+  Home,
+  Droplet,
+  FlaskConical,
+  Scan,
+  Camera,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import styles from "./Servises.module.scss";
 
-interface ServicesProps {
-  onServiceClick?: (serviceId: string) => void;
-}
 
-export function Services({ onServiceClick }: ServicesProps) {
+export function Services() {
   const services = [
-    { id: "topographic-cadastral", icon: Map, title: "Топографічні та кадастрові зйомки", desc: "Геодезичні вимірювання на місцевості, складання топографічних планів, нанесення червоних ліній" },
-    { id: "mining-geodesy", icon: Mountain, title: "Геодезичні роботи в гірничій промисловості", desc: "Складання топографічного плану, обрахунок обʼємів котлованів та насипів" },
-    { id: "construction-survey", icon: Building, title: "Вишукування під реконструкцію та будівництво", desc: "Вишукування під реконструкцію цивільних та промислових споруд" },
-    { id: "geology", icon: Home, title: "Геологія під будівництво", desc: "Геологія під будівництво будинків, котеджів, інженерних споруд" },
-    { id: "water-analysis", icon: FlaskConical, title: "Лабораторний аналіз води", desc: "Комплексний хімічний та бактеріологічний аналіз води" },
-    { id: "water-drilling", icon: Droplet, title: "Буріння свердловин на воду", desc: "Буріння свердловин різної глибини з облаштуванням" },
-    { id: "laser-scanning", icon: Scan, title: "3D лазерне сканування будівель", desc: "Сканування складних контурів будівель і споруд" },
-    { id: "facade-scanning", icon: Camera, title: "3D сканування фасаду", desc: "Інвентаризація промислових та інженерних комплексів" },
+    {
+      slug: "topographic-cadastral",
+      icon: Map,
+      title: "Топографічні та кадастрові зйомки",
+      desc: "Геодезичні вимірювання на місцевості, складання топографічних планів, нанесення червоних ліній",
+    },
+    {
+      slug: "mining-geodesy",
+      icon: Mountain,
+      title: "Геодезичні роботи в гірничій промисловості",
+      desc: "Складання топографічного плану, обрахунок обʼємів котлованів та насипів",
+    },
+    {
+      slug: "engineering-geological-surveys",
+      icon: Building,
+      title: "Вишукування під реконструкцію та будівництво",
+      desc: "Вишукування під реконструкцію цивільних та промислових споруд",
+    },
+    {
+      slug: "construction-geology",
+      icon: Home,
+      title: "Геологія під будівництво",
+      desc: "Геологія під будівництво будинків, котеджів, інженерних споруд",
+    },
+    {
+      slug: "water-analysis",
+      icon: FlaskConical,
+      title: "Лабораторний аналіз води",
+      desc: "Комплексний хімічний та бактеріологічний аналіз води",
+    },
+    {
+      slug: "water-well-drilling",
+      icon: Droplet,
+      title: "Буріння свердловин на воду",
+      desc: "Буріння свердловин різної глибини з облаштуванням",
+    },
+    {
+      slug: "3d-laser-scanning-complex",
+      icon: Scan,
+      title: "3D лазерне сканування будівель",
+      desc: "Сканування складних контурів будівель і споруд",
+    },
+    {
+      slug: "3d-scanning-and-industrial-inventory",
+      icon: Camera,
+      title: "3D сканування фасаду",
+      desc: "Інвентаризація промислових та інженерних комплексів",
+    },
   ];
 
   return (
@@ -30,17 +77,17 @@ export function Services({ onServiceClick }: ServicesProps) {
         {/* Grid */}
         <div className={styles.services__grid}>
           {services.map((service) => (
-            <button
-              key={service.id}
-              onClick={() => onServiceClick?.(service.id)}
+            <Link
+              to={`/service/${service.slug}`}
+              key={service.slug}
               className={styles.services__card}
-            >
-              <service.icon className={styles.services__icon} />
+            >   
+                <service.icon className={styles.services__icon} />
 
-              <h3 className={styles.services__cardTitle}>{service.title}</h3>
+                <h3 className={styles.services__cardTitle}>{service.title}</h3>
 
-              <p className={styles.services__desc}>{service.desc}</p>
-            </button>
+                <p className={styles.services__desc}>{service.desc}</p>
+            </Link>
           ))}
         </div>
 
