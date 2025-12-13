@@ -1,0 +1,704 @@
+@use "/src/styles/mixins" as *;
+@use "/src/styles/colors" as *;
+
+// AboutUsPage.module.scss
+
+// --- Variables ---
+$color-primary: #1a283b;      // Dark text / Dark mode background
+$color-secondary: #d7dbbd;    // Light background
+$color-accent: #A7A746;       // Accent/Gold color
+$color-white: #ffffff;
+
+// Dark Mode Variables
+$dark-bg: #0f1a29;
+$dark-card-bg: #1a283b;
+$dark-text: $color-white;
+
+
+.aboutUs {
+  min-height: 100vh;
+  background-color: $color-secondary;
+  color: $color-primary;
+
+  &[data-theme='dark'] {
+    background-color: $dark-bg;
+    color: $dark-text;
+
+    .aboutUs__title {
+      color: $dark-text;
+    }
+    .aboutUs__subtitle {
+      color: rgba($dark-text, 0.8);
+    }
+    .aboutUs__statItem {
+      background-color: $dark-card-bg;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); // Shadow
+      
+      .aboutUs__statLabel {
+        color: rgba($dark-text, 0.7);
+      }
+    }
+    .aboutUs__content, .aboutUs__principles {
+      background-color: $dark-card-bg;
+    }
+    .aboutUs__textContent, .aboutUs__heading {
+      color: $dark-text;
+    }
+    .aboutUs__textBlock, .aboutUs__textBlock p {
+      color: rgba($dark-text, 0.8);
+    }
+    .aboutUs__imagePlaceholder {
+      background-color: rgba($color-accent, 0.05);
+    }
+    .aboutUs__imageText {
+      color: $dark-text;
+    }
+    .aboutUs__sectionSubtitle, .aboutUs__benefitDescription, .aboutUs__principleDescription {
+      color: rgba($dark-text, 0.7);
+    }
+    .aboutUs__benefitItem {
+      background-color: $dark-card-bg;
+      .aboutUs__benefitTitle {
+        color: $dark-text;
+      }
+    }
+    .aboutUs__principleItem {
+      background-color: $dark-bg;
+      .aboutUs__principleTitle {
+        color: $dark-text;
+      }
+    }
+    .aboutUs__finalContent {
+      .aboutUs__finalText {
+        color: rgba($dark-text, 0.8);
+      }
+    }
+  }
+}
+
+// --- Utility Classes (Container/Padding) ---
+.aboutUs__container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include onTablet {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @include onDesktop {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.aboutUs__heading {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  
+  @include onTablet {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  @include onDesktop {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+// --- Sections ---
+
+.aboutUs__hero {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+
+  @include onTablet {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.aboutUs__header {
+  text-align: center;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aboutUs__title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: $color-primary;
+  margin-bottom: 1.5rem;
+
+  @include onTablet {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  @include onDesktop {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.aboutUs__titleAccent {
+  color: $color-accent;
+}
+
+.aboutUs__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: rgba($color-primary, 0.8);
+  line-height: 1.6;
+
+  @include onTablet {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+// Stats
+.aboutUs__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+
+  @include onTablet {
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  @include onDesktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.aboutUs__statItem {
+  background-color: $color-white;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+
+  @include onTablet {
+    padding: 2rem;
+  }
+
+  // Ефект, що замінює whileHover
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.aboutUs__statNumber {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: $color-accent;
+  margin-bottom: 0.5rem;
+
+  @include onTablet {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  @include onDesktop {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.aboutUs__statLabel {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($color-primary, 0.7);
+
+  @include onTablet {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// Main Content
+.aboutUs__content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-white;
+
+  @include onTablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.aboutUs__grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+
+  @include onDesktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+.aboutUs__textContent {
+  // Styles for the left block (already handled by .aboutUs__heading)
+}
+
+.aboutUs__textBlock {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgba($color-primary, 0.8);
+  line-height: 1.6;
+
+  @include onTablet {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  & > p {
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.aboutUs__imagePlaceholder {
+  position: relative;
+  height: 300px;
+  background-color: rgba($color-accent, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: default;
+
+  @include onTablet {
+    height: 400px;
+  }
+  @include onDesktop {
+    height: 500px;
+  }
+
+  // Group hover emulation
+  &:hover .aboutUs__imageIcon {
+    transform: scale(1.1);
+  }
+}
+
+.aboutUs__imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba($color-accent, 0.2), transparent);
+}
+
+.aboutUs__imageContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+}
+
+.aboutUs__imageIcon {
+  width: 5rem;
+  height: 5rem;
+  color: $color-accent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease; // Додано transition
+
+  @include onTablet {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.aboutUs__imageText {
+  color: $color-primary;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+
+  @include onTablet {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+// What Client Gets (Benefits)
+.aboutUs__benefits {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-secondary;
+
+  @include onTablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.aboutUs__sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @include onTablet {
+    margin-bottom: 4rem;
+  }
+}
+
+.aboutUs__sectionSubtitle {
+  color: rgba($color-primary, 0.7);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include onTablet {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.aboutUs__benefitsGrid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include onDesktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.aboutUs__benefitItem {
+  background-color: $color-white;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+
+  @include onTablet {
+    padding: 2rem;
+  }
+
+  // Ефект, що замінює whileHover
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Group hover emulation
+  &:hover .aboutUs__benefitIconWrapper {
+    background-color: $color-accent;
+  }
+  &:hover .aboutUs__benefitIcon {
+    color: $color-white;
+  }
+}
+
+.aboutUs__benefitIconWrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: rgba($color-accent, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease; // Додано transition
+
+  @include onTablet {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.aboutUs__benefitIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: $color-accent;
+  transition: color 0.3s ease; // Додано transition
+
+  @include onTablet {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.aboutUs__benefitTitle {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: $color-primary;
+  margin-bottom: 0.75rem;
+
+  @include onTablet {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.aboutUs__benefitDescription {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($color-primary, 0.7);
+  line-height: 1.6;
+
+  @include onTablet {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// Our Principles
+.aboutUs__principles {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-white;
+
+  @include onTablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.aboutUs__principlesGrid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include onDesktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.aboutUs__principleItem {
+  position: relative;
+  background-color: $color-secondary;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease; // Додано transition
+  cursor: default;
+
+  @include onTablet {
+    padding: 2rem;
+  }
+  
+  // Ефект, що замінює whileHover
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  // Group hover emulation
+  &:hover .aboutUs__principleAccentBar {
+    transform: scaleX(1);
+  }
+  &:hover .aboutUs__principleIcon {
+    transform: rotate(12deg);
+  }
+}
+
+.aboutUs__principleAccentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background-color: $color-accent;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease; // Додано transition
+}
+
+.aboutUs__principleIcon {
+  width: 3rem;
+  height: 3rem;
+  color: $color-accent;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease; // Додано transition
+
+  @include onTablet {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.aboutUs__principleTitle {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $color-primary;
+  margin-bottom: 0.75rem;
+
+  @include onTablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.aboutUs__principleDescription {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($color-primary, 0.7);
+  line-height: 1.6;
+
+  @include onTablet {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// Quote Section
+.aboutUs__quote {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-accent;
+
+  @include onTablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.aboutUs__quoteContent {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.aboutUs__quoteIcon {
+  font-size: 3rem;
+  line-height: 1;
+  color: rgba($color-white, 0.2);
+  margin-bottom: 1.5rem;
+
+  @include onTablet {
+    font-size: 4rem;
+  }
+  @include onDesktop {
+    font-size: 5rem;
+  }
+}
+
+.aboutUs__quoteText {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $color-white;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+
+  @include onTablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  @include onDesktop {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.aboutUs__quoteDetails {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgba($color-white, 0.9);
+  margin-bottom: 2rem;
+
+  @include onTablet {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+// Final Section
+.aboutUs__final {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $color-white;
+
+  @include onTablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include onDesktop {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  &[data-theme='dark'] {
+    background-color: $dark-card-bg;
+  }
+}
+
+.aboutUs__finalContent {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.aboutUs__finalText {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: rgba($color-primary, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+
+  @include onTablet {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.aboutUs__finalButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: $color-accent;
+  color: $color-white;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; // Додано transition
+
+  @include onTablet {
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  // Ефекти, що замінюють whileHover/whileTap
+  &:hover {
+    background-color: darken($color-accent, 10%);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
