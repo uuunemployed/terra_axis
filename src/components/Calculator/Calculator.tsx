@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sendMessageToTelegram } from '../../telegram'
 import {
   Calculator as CalcIcon,
   User,
@@ -28,11 +29,35 @@ export function Calculator() {
   });
 
   const [estimatedPrice, setEstimatedPrice] = useState<number | null>(null);
+  
+  const [isSending, setIsSending] = useState(false)
 
-  const handleConsultationSubmit = (e: React.FormEvent) => {
+  const handleConsultationSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Дякуємо! Наш фахівець зв'яжеться з вами найближчим часом.");
-    setFormData({ name: "", phone: "", email: "" });
+
+    // Валідація (проста)
+    if (!formData.name || !formData.phone) {
+      alert("Будь ласка, заповніть обов'язкові поля!");
+      return;
+    }
+
+    setIsSending(true); // Вмикаємо "завантаження"
+
+    // Викликаємо сервіс
+    const success = await sendMessageToTelegram({
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+    });
+
+    setIsSending(false); // Вимикаємо "завантаження"
+
+    if (success) {
+      alert("Дякуємо! Наш фахівець зв'яжеться з вами найближчим часом.");
+      setFormData({ name: "", phone: "", email: "" }); // Очищаємо форму
+    } else {
+      alert("Виникла помилка при відправці. Спробуйте пізніше або зателефонуйте нам.");
+    }
   };
 
   const handleCalculate = (e: React.FormEvent) => {
@@ -150,8 +175,13 @@ export function Calculator() {
                   </div>
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  ВІДПРАВИТИ
+                <button 
+                  type="submit" 
+                  className={styles.submitBtn}
+                  disabled={isSending} // Блокуємо кнопку, поки йде відправка
+                  style={{ opacity: isSending ? 0.7 : 1, cursor: isSending ? 'not-allowed' : 'pointer' }}
+                >
+                  {isSending ? "ВІДПРАВКА..." : "ВІДПРАВИТИ"}
                 </button>
               </form>
             )}

@@ -21,7 +21,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
             {/* 1. Definition (Що це таке) */}
             <div>
               <h2 className={styles.sectionTitle}>
-                Що це таке?
+                Що таке {service.title}?
               </h2>
               <p className={styles.textBody}>
                 {service.definition}
