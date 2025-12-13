@@ -7,6 +7,7 @@ import {
 import App from "./App";
 import { HomePage } from "./modules/HomePage/HomePage";
 import { ServicesPage } from "./modules/ServicesPage/ServicesPage";
+import { AboutUsPage } from "./modules/AboutUsPage/AboutUsPage";
 
 export const Root = () => {
   return (
@@ -16,6 +17,7 @@ export const Root = () => {
           <Route index element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="service/:serviceSlug" element={<ServicesPage />} />
+          <Route path="about" element={<AboutUsPage />} />
         </Route>
       </Routes>
     </Router>

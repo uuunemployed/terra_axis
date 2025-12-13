@@ -46,7 +46,7 @@ export function Header() {
               <line x1="25.5" y1="85" x2="74.5" y2="85" />
             </g>
           </svg>
-          <div className={styles['header__logo-texts']}>
+          <div className={styles["header__logo-texts"]}>
             <p className={styles.header__companyName}>TerraAxis</p>
             <p className={styles.header__slogan}>
               PRECISION IN EVERY COORDINATE
@@ -65,8 +65,9 @@ export function Header() {
           <button onClick={toggleTheme} className={styles.nav__themeBtn}>
             {theme === "light" ? <Moon /> : <Sun />}
           </button>
-
-          <CalculatorButton text="ЗАМОВИТИ ДЗВІНОК" />
+          <a className={styles.nav__PhoneBtn} href="tel:+380507850511">
+            ЗАМОВИТИ ДЗВІНОК
+          </a>
         </nav>
 
         <div className={styles.mobileControls}>

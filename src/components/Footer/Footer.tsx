@@ -38,13 +38,6 @@ export function Footer() {
     },
   ];
 
-  const scrollToCalculator = () => {
-    const element = document.getElementById("calculator");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -96,17 +89,6 @@ export function Footer() {
             <Link to="/about" className={styles.link}>
               Про нас
             </Link>
-            <button
-              onClick={scrollToCalculator}
-              className={styles.link}
-              style={{
-                background: 'rgba(255, 255, 255, 0)',
-                border: '0',
-                textAlign: 'left'
-              }}
-            >
-              Калькулятор
-            </button>
           </div>
 
           <div className={styles.block}>
@@ -125,7 +107,7 @@ export function Footer() {
             <h3 className={styles.blockTitle}>КОНТАКТИ</h3>
             <div className={styles.contact}>
               <div className={styles.info}>
-                <a href="tel:+380000000000">+38 (000) 000-00-00</a>
+                <a href="tel:+380000000000">+38 (050) 785-05-11</a>
                 <a href="mailto:info@terraaxis.com">info@terraaxis.com</a>
               </div>
               <div className={styles.address}>м. Ужгород</div>
