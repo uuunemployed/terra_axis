@@ -34,12 +34,12 @@ export function About() {
 
             <div className={styles.about__stats}>
               <div className={styles.about__stat}>
-                <div className={styles.about__statNumber}>15+</div>
+                <div className={styles.about__statNumber}>5+</div>
                 <div className={styles.about__statLabel}>Років досвіду</div>
               </div>
 
               <div className={styles.about__stat}>
-                <div className={styles.about__statNumber}>500+</div>
+                <div className={styles.about__statNumber}>300+</div>
                 <div className={styles.about__statLabel}>Проєктів</div>
               </div>
 

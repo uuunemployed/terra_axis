@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Hero.module.scss";
+import { CalculatorButton } from "../../../../components/CalculatorButton";
 
 const SLIDES = [
   {
@@ -55,9 +56,7 @@ export function Hero() {
                 <h1 className={styles.hero__title}>{slide.title}</h1>
                 <p className={styles.hero__text}>{slide.text}</p>
 
-                <a href="#calculator" className={styles.hero__button}>
-                  ДІЗНАТИСЬ ВАРТІСТЬ
-                </a>
+                <CalculatorButton text="ДІЗНАТИСЬ ВАРТІСТЬ" isScroll={true} padding="1rem 2.5rem"/>
               </div>
             </div>
           </div>

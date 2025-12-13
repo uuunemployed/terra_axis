@@ -1,37 +1,8 @@
 @use "/src/styles/mixins" as *;
-
-$light: (
-  bg-color: #ffffff,
-  cardRegion-color: #d7dbbd1a,
-  titleCard-color: #1a283b,
-  text-color: #6a7282,
-  secondText-color: #4a5565,
-  border-color: #e5e7eb,
-);
-
-$dark: (
-  bg-color: #0f1821,
-  cardRegion-color: #1a283b,
-  titleCard-color: #ffffff,
-  secondText-color: #d7dbbd,
-  text-color: #d7dbbd,
-  border-color: #a7a74633,
-);
-
-:root {
-  @each $var, $value in $light {
-    --#{$var}: #{$value};
-  }
-}
-
-[data-theme="dark"] {
-  @each $var, $value in $dark {
-    --#{$var}: #{$value};
-  }
-}
+@use "/src/styles/colors" as *;
 
 .work-regions {
-  background-color: var(--bg-color);
+  background-color: var(--bg2-color);
   padding: 4rem 1rem;
 
   &__container {
@@ -59,7 +30,7 @@ $dark: (
     }
 
     &-text {
-      color: var(--titleCard-color);
+      color: var(--title-color);
       font-weight: 700;
       font-size: 1.5rem;
     }
@@ -88,9 +59,9 @@ $dark: (
       flex: 1;
       padding: 0.5rem 1rem;
       font-size: 0.875rem;
-      background-color: var(--cardRegion-color);
+      background-color: var(--card2-color);
       border: 1px solid var(--border-color);
-      color: var(--text-color);
+      color: var(--text2-color);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -121,7 +92,7 @@ $dark: (
     }
 
     &-item {
-      background-color: var(--cardRegion-color);
+      background-color: var(--card2-color);
       border: 2px solid var(--border-color);
       padding: 1rem;
       transition: all 0.3s;
@@ -132,7 +103,7 @@ $dark: (
       }
 
       &__cities-title {
-        color: var(--text-color);
+        color: var(--text2-color);
         font-size: 0.75rem;
         margin-bottom: 0.5rem;
         font-weight: 500;
@@ -155,7 +126,7 @@ $dark: (
           gap: 8px;
 
           &-title {
-            color: var(--titleCard-color);
+            color: var(--title-color);
           }
         }
       }
@@ -187,8 +158,8 @@ $dark: (
       }
 
       &__city {
-        background-color: var(--bg-color);
-        color: var(--titleCard-color);
+        background-color: var(--bg2-color);
+        color: var(--title-color);
         font-size: 0.75rem;
         padding: 0.25rem 0.5rem;
         border: 1px solid var(--border-color);
@@ -214,7 +185,7 @@ $dark: (
     margin-bottom: 2rem;
 
     &-title {
-      color: #fff;
+      color:  var(--title-color);
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
     }
@@ -237,7 +208,7 @@ $dark: (
     }
 
     &-item {
-      background-color: var(--cardRegion-color);
+      background-color: var(--card2-color);
       border: 2px solid var(--border-color);
       padding: 1rem;
       transition: border-color 0.3s ease, transform 0.3s;
@@ -248,7 +219,7 @@ $dark: (
       }
 
       &-title {
-        color: var(--titleCard-color);
+        color: var(--title-color);
         font-size: 1rem;
         margin-bottom: 0.25rem;
       }
@@ -257,7 +228,7 @@ $dark: (
         display: flex;
         justify-content: space-between;
         font-size: 0.75rem;
-        color: var(--text-color);
+        color: var(--text2-color);
 
         &-projects {
           color: #a7a746;
@@ -288,7 +259,7 @@ $dark: (
   }
 
   &__item {
-    background-color: var(--cardRegion-color);
+    background-color: var(--card2-color);
     padding: 1rem;
     text-align: center;
     border-left: 4px solid #a7a746;

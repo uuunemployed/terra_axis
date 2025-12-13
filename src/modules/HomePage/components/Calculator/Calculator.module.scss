@@ -1,0 +1,361 @@
+@use "/src/styles/mixins" as *;
+@use "/src/styles/colors" as *;
+
+.calculator {
+  background-color: #1a283b;
+  padding: 64px 0;
+
+  @include onTablet {
+    padding: 80px 0;
+  }
+
+  @include onDesktop {
+    padding: 96px 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  @include inlinePadding();
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include onDesktop {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.left {
+  background-color: #a7a746;
+  padding: 24px;
+
+  @include onTablet {
+    padding: 32px;
+  }
+
+  @include onDesktop {
+    padding: 48px 64px;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+
+  @include onTablet {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  @include onDesktop {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+
+  @include onTablet {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  @include onDesktop {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @include onTablet {
+    gap: 16px;
+  }
+}
+
+.statItem {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+
+  @include onTablet {
+    padding: 16px;
+  }
+
+  @include onDesktop {
+    padding: 20px;
+  }
+}
+
+.statValue {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 4px;
+
+  @include onTablet {
+    font-size: 28px;
+  }
+
+  @include onDesktop {
+    font-size: 32px;
+  }
+}
+
+.statLabel {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+
+  @include onTablet {
+    font-size: 12px;
+  }
+}
+
+.right {
+  background-color: var(--bg2-color);
+  padding: 24px;
+
+  @include onTablet {
+    padding: 32px;
+  }
+
+  @include onDesktop {
+    padding: 48px 64px;
+  }
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 20px;
+
+  @include onTablet {
+    margin-bottom: 28px;
+  }
+}
+
+.tab {
+  border: 0;
+  background-color: var(--bg2-color);
+  flex: 1;
+  padding-bottom: 10px;
+  font-size: 10px;
+  text-align: center;
+  color: #888;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.25s;
+
+  &:hover {
+    color: var(--title-color);
+  }
+
+  @include onTablet {
+    font-size: 12px;
+    padding-bottom: 12px;
+  }
+
+  @include onDesktop {
+    font-size: 14px;
+  }
+}
+
+.tab_active {
+  color: #a7a746;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #a7a746;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include onTablet {
+    gap: 20px;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  color: var(--title-color);
+  font-size: 12px;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #b0b0b0;
+
+  @include onTablet {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  background-color: var(--select-color);
+  padding: 10px 12px 10px 40px;
+  font-size: 14px;
+  color: var(--secondText-color);
+  outline: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &:focus {
+    border-color: #a7a746;
+  }
+
+  @include onTablet {
+    padding: 12px 14px 12px 48px;
+    font-size: 16px;
+  }
+}
+.select {
+  @extend .input;
+  appearance: none;
+  color: var(--secondText-color); // placeholder
+
+  &--filled {
+    color: var(--secondText-color);
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #a7a746;
+  color: #a7a746;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #a7a746;
+    color: white;
+  }
+
+  @include onTablet {
+    padding: 14px;
+  }
+}
+
+.calcBtn {
+  border: 0;
+  width: 100%;
+  padding: 12px;
+  background: #a7a746;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #1a283b;
+  }
+
+  @include onTablet {
+    padding: 14px;
+  }
+}
+
+.resultBox {
+  margin-top: 12px;
+  border: 2px solid #a7a746;
+  background-color: rgba(#a7a746, 0.1);
+  padding: 16px;
+
+  @include onTablet {
+    padding: 20px;
+  }
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.resultIcon {
+  width: 20px;
+  height: 20px;
+  color: #a7a746;
+}
+
+.resultLabel {
+  color: #1a283b;
+  font-size: 14px;
+
+  @include onTablet {
+    font-size: 16px;
+  }
+}
+
+.resultValue {
+  font-size: 22px;
+  color: #a7a746;
+  margin-bottom: 10px;
+
+  @include onTablet {
+    font-size: 26px;
+  }
+
+  @include onDesktop {
+    font-size: 32px;
+  }
+}
+
+.resultNote {
+  color: #666;
+  font-size: 12px;
+
+  @include onTablet {
+    font-size: 14px;
+  }
+}

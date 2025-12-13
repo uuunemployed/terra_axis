@@ -1,29 +1,5 @@
 @use "/src/styles/mixins" as *;
 
-$light: (
-  card-color: #ffffff,
-  title-color: #1a283b,
-  text-color: #4a5565,
-);
-
-$dark: (
-  card-color: #0F1821,
-  title-color: #ffffff,
-  text-color: #d7dbbd,
-);
-
-:root {
-  @each $var, $value in $light {
-    --#{$var}: #{$value};
-  }
-}
-
-[data-theme="dark"] {
-  @each $var, $value in $dark {
-    --#{$var}: #{$value};
-  }
-}
-
 .why-us {
   padding: 3rem 0;
   background: #1a283b;
@@ -116,7 +92,7 @@ $dark: (
 }
 
 .why-us__card {
-  background: var(--card-color);
+  background: var(--bg2-color);
   border: 1px solid rgba(167, 167, 70, 0.2);
   padding: 1.25rem;
   text-align: center;
@@ -197,7 +173,7 @@ $dark: (
 }
 
 .why-us__card-desc {
-  color: var(--text-color);
+  color: var(--secondText-color);
   font-size: 0.75rem;
   line-height: 1.5;
 

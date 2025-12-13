@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import styles from "./Servises.module.scss";
+import { CalculatorButton } from "../../../../components/CalculatorButton";
 
 
 export function Services() {
@@ -67,14 +68,12 @@ export function Services() {
   return (
     <section id="services" className={styles.services}>
       <div className={styles.services__container}>
-        {/* Title */}
         <div className={styles.services__header}>
           <span className={styles.services__subtitle}>НАШІ ПОСЛУГИ</span>
           <h2 className={styles.services__title}>Що ми пропонуємо</h2>
           <div className={styles.services__divider}></div>
         </div>
 
-        {/* Grid */}
         <div className={styles.services__grid}>
           {services.map((service) => (
             <Link
@@ -91,11 +90,8 @@ export function Services() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className={styles.services__ctaWrapper}>
-          <a href="#calculator" className={styles.services__cta}>
-            ЗАМОВИТИ КОНСУЛЬТАЦІЮ
-          </a>
+          <CalculatorButton text="ЗАМОВИТИ КОНСУЛЬТАЦІЮ" isScroll={true} padding="0.75rem 2rem" />
         </div>
       </div>
     </section>

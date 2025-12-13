@@ -43,10 +43,6 @@ export function WorkRegions() {
     { name: "Хуст", projects: 8, region: "Закарпатська обл." },
   ];
 
-  const totalProjects = regions.reduce(
-    (sum, region) => sum + region.projects,
-    0
-  );
   const totalCities = regions.reduce(
     (sum, region) => sum + region.cities.length,
     0
@@ -74,7 +70,7 @@ export function WorkRegions() {
 
         <div className={styles["stats"]}>
           <div className={styles["stats__item"]}>
-            <div className={styles["stats__value"]}>{regions.length}</div>
+            <div className={styles["stats__value"]}>{regions.length}+</div>
             <div className={styles["stats__label"]}>Областей</div>
           </div>
 
@@ -84,12 +80,12 @@ export function WorkRegions() {
           </div>
 
           <div className={styles["stats__item"]}>
-            <div className={styles["stats__value"]}>{totalProjects}+</div>
+            <div className={styles["stats__value"]}>300+</div>
             <div className={styles["stats__label"]}>Проектів</div>
           </div>
 
           <div className={styles["stats__item"]}>
-            <div className={styles["stats__value"]}>2010</div>
+            <div className={styles["stats__value"]}>2020</div>
             <div className={styles["stats__label"]}>Рік заснування</div>
           </div>
         </div>
@@ -271,7 +267,7 @@ export function WorkRegions() {
               транспортом для виконання робіт.
             </p>
 
-            <CalculatorButton text="ЗВ'ЯЗАТИСЯ З НАМИ" padding='1rem 2rem' bg={'#a7a746'} />
+            <CalculatorButton text="ЗВ'ЯЗАТИСЯ З НАМИ" isScroll={true} padding='1rem 2rem' bg={'#a7a746'} />
           </div>
         </div>
       </div>

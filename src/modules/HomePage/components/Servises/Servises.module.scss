@@ -1,32 +1,7 @@
 @use "/src/styles/mixins" as m;
+@use "/src/styles/colors" as *;
 
 $accent: #a7a746;
-
-$light: (
-  bg-color: #ffffff,
-  card-color: #d7dbbd1a,
-  title-color: #1a283b,
-  text-color: #4A5565,
-);
-
-$dark: (
-  bg-color: #1a283b,
-  card-color: #0f1821,
-  title-color: #ffffff,
-  text-color: #D7DBBD,
-);
-
-:root {
-  @each $var, $value in $light {
-    --#{$var}: #{$value};
-  }
-}
-
-[data-theme="dark"] {
-  @each $var, $value in $dark {
-    --#{$var}: #{$value};
-  }
-}
 
 .services {
   background-color: var(--bg-color);
@@ -178,7 +153,7 @@ $dark: (
   }
 
   &__desc {
-    color: var(--text-color);
+    color: var(--secondText-color);
     font-size: 0.75rem;
     line-height: 1.5;
     transition: color 0.3s;

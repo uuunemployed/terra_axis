@@ -1,30 +1,5 @@
 @use "/src/styles/mixins" as *;
-
-$light: (
-  bg-color: #ffffff,
-  text-color: #364153,
-  title-color: #1A283B,
-  secondText-color: #4A5565,
-);
-
-$dark: (
-  bg-color: #1a283b,
-  text-color: #D7DBBD,
-  title-color: #FFFFFF,
-  secondText-color: #D7DBBD
-);
-
-:root {
-  @each $var, $value in $light {
-    --#{$var}: #{$value};
-  }
-}
-
-[data-theme="dark"] {
-  @each $var, $value in $dark {
-    --#{$var}: #{$value};
-  }
-}
+@use "/src/styles/colors" as *;
 
 .testimonials {
   background-color: #1a283b;
@@ -41,6 +16,7 @@ $dark: (
   &__header {
     text-align: center;
     margin-bottom: 3rem;
+    @include inlinePadding;
   }
 
   &__subtitle {
@@ -112,7 +88,7 @@ $dark: (
   }
 
   &__card {
-    background: var(--bg-color);
+    background: var(--bg2-color);
     padding: 2rem;
     width: 100%;
     max-width: 60rem;
@@ -120,14 +96,16 @@ $dark: (
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     transition: transform 0.3s ease;
-    min-height: 432px;
+    min-height: 35rem;
 
     @include onTablet {
       padding: 3rem;
+      min-height: 30rem;
     }
 
     @include onDesktop {
       padding: 4rem;
+      min-height: 35rem;
     }
   }
 
@@ -165,28 +143,6 @@ $dark: (
     @include onTablet {
       font-size: 1.25rem;
     }
-  }
-
-  &__author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  &__image {
-    width: 4rem;
-    height: 4rem;
-    object-fit: cover;
-  }
-
-  &__name {
-    font-size: 1.25rem;
-    color: var(--title-color);
-  }
-
-  &__position {
-    color: var(--secondText-color);
-    font-size: 0.9rem;
   }
 
   &__dots {

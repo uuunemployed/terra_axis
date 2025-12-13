@@ -1,28 +1,5 @@
 @use "/src/styles/mixins" as *;
-
-$light: (
-  bg-color: #ffffff,
-  tx-color: #1A283B,
-  stx-color: #4A5565,
-);
-
-$dark: (
-  bg-color: #0f1821,
-  tx-color: #ffffff,
-  stx-color: #d7dbbd,
-);
-
-:root {
-  @each $var, $value in $light {
-    --#{$var}: #{$value};
-  }
-}
-
-[data-theme="dark"] {
-  @each $var, $value in $dark {
-    --#{$var}: #{$value};
-  }
-}
+@use "/src/styles/colors" as *;
 
 .about {
   padding: 4rem 0;
@@ -101,7 +78,7 @@ $dark: (
   }
 
   &__title {
-    color: var(--tx-color);
+    color: var(--title-color);
     font-size: 2rem;
     margin-bottom: 1rem;
 
@@ -116,7 +93,7 @@ $dark: (
   }
 
   &__text {
-    color: var(--stx-color);
+    color: var(--secondText-color);
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -157,7 +134,7 @@ $dark: (
 
   &__statLabel {
     font-size: 0.75rem;
-    color: var(--stx-color);
+    color: var(--secondText-color);
 
     @media (min-width: 640px) {
       font-size: 0.9rem;

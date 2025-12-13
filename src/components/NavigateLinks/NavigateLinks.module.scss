@@ -1,3 +1,5 @@
+@use "/src/styles/mixins" as *;
+
 .nav {
   &__links {
     display: flex;
@@ -5,33 +7,87 @@
   }
 
   &__link {
-    color: #fff;
+    color: #ffffff;
     font-size: 14px;
-    font-weight: 400;
     text-decoration: none;
-    height: 100%;
-    line-height: 64px;
     position: relative;
-    width: auto;
-    width: fit-content;
+    line-height: 64px;
 
     &:hover {
       color: #a7a746;
-      transition: color 0.3s;
     }
+
+    /* underline on hover from left to right */
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #a7a746;
+
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Внутрішні лінки у списку */
+  &__link-drop {
+    @extend .nav__link;
+    line-height: 24px;
   }
 }
 
+/* Активне меню */
 .is-active {
   color: #a7a746;
+
+  &::after {
+    transform: scaleX(1);
+  }
 }
 
-.is-active:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #a7a746;
-  bottom: 0;
+/* Випадаючий список */
+.dropdown {
+  position: relative;
+
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* ДЕСKTOP — меню показується по hover */
+  @include onDesktop {
+    &:hover .dropdown__menu {
+      display: flex;
+    }
+  }
+
+  &__menu {
+    display: none; // ❗ по замовчуванню приховане
+    flex-direction: column;
+    gap: 8px;
+
+    background: #1a283b;
+    width: 260px;
+    border-radius: 4px;
+    padding: 12px 0;
+    @include inlinePadding;
+
+    /* MOBILE — меню йде звичайним блоком у бургері */
+    @include onTablet {
+      position: absolute;
+      left: 0;
+      top: 64px;
+      z-index: 10;
+    }
+  }
 }

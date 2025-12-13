@@ -12,16 +12,21 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px #4a5565 solid;
+    gap: 16px;
     @include inlinePadding;
   }
 
   &__logo {
     padding-block: 8px;
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
     gap: 8px;
+
+    &-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
   }
 
   &__companyName {

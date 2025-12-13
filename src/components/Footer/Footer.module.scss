@@ -1,0 +1,202 @@
+@use "/src/styles/mixins" as *;
+
+.footer {
+  background-color: #1a283b;
+  color: white;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include onTablet {
+    padding: 48px 0;
+  }
+
+  @include onDesktop {
+    padding: 64px 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  @include inlinePadding();
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+.logoBlock {
+  display: flex;
+  flex-direction: column;
+
+  .description {
+    font-size: 12px;
+    color: rgba(215, 219, 189, 0.8);
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 12px;
+
+    a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #a7a746;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #a7a746;
+
+        svg {
+          color: white;
+        }
+      }
+
+      @include onTablet {
+        width: 44px;
+        height: 44px;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.blockTitle {
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #a7a746;
+  letter-spacing: 0.05em;
+
+  @include onTablet {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}
+
+.link {
+  display: block;
+  font-size: 12px;
+  color: #d7dbbd;
+  line-height: 1.5;
+  transition: color 0.3s;
+  margin-bottom: 8px;
+  text-decoration: none;
+
+  &:hover {
+    color: #a7a746;
+  }
+
+  @include onTablet {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+// ------------------------
+// CONTACTS
+// ------------------------
+.contact {
+  .info {
+    font-size: 12px;
+    color: rgba(215, 219, 189, 0.8);
+    line-height: 1.5;
+    margin-bottom: 4px;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: #a7a746;
+      }
+    }
+  }
+
+  .address {
+    padding-top: 4px;
+  }
+
+  .hours {
+    font-size: 10px;
+    color: rgba(215, 219, 189, 0.6);
+  }
+}
+
+// ------------------------
+// BOTTOM
+// ------------------------
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 10px;
+  color: rgba(215, 219, 189, 0.6);
+  text-align: center;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    gap: 0;
+    text-align: left;
+  }
+
+  .bottomLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #a7a746;
+      }
+    }
+  }
+}

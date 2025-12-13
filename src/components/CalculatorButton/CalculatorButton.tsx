@@ -12,6 +12,7 @@ export const CalculatorButton = ({
   bg?: string;
 }) => {
   const scrollToCalculator = () => {
+    console.log(true)
     const element = document.getElementById("calculator");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

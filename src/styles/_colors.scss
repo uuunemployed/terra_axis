@@ -1,0 +1,40 @@
+$light: (
+  bg-color: #ffffff,
+  bg2-color: #ffffff,
+  card-color: #d7dbbd1a,
+  card2-color: #d7dbbd1a,
+  text-color: #364153,
+  text2-color: #6a7282,
+  title-color: #1a283b,
+  title2-color: #1a283b,
+  secondText-color: #4a5565,
+  border-color: #e5e7eb,
+  select-color: #F9FAFB,
+);
+
+$dark: (
+  bg-color: #1a283b,
+  bg2-color: #0f1821,
+  card-color: #0f1821,
+  card2-color: #1a283b,
+  text-color: #d7dbbd,
+  text2-color: #d7dbbd,
+  title-color: #ffffff,
+  title2-color: #ffffff,
+  secondText-color: #d7dbbd,
+  border-color: #a7a74633,
+  select-color: #1A283B,
+);
+
+
+:root {
+  @each $var, $value in $light {
+    --#{$var}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $var, $value in $dark {
+    --#{$var}: #{$value};
+  }
+}

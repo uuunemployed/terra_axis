@@ -25,8 +25,33 @@ export function Header() {
     >
       <div className={styles.header__container}>
         <div className={styles.header__logo}>
-          <p className={styles.header__companyName}>TerraAxis</p>
-          <p className={styles.header__slogan}>PRECISION IN EVERY COORDINATE</p>
+          <svg
+            width="40"
+            height="48"
+            viewBox="0 0 100 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g stroke="#7F875F" stroke-width="2.5" stroke-linecap="butt">
+              <circle cx="50" cy="60" r="35" />
+
+              <line x1="50" y1="15" x2="50" y2="102" />
+
+              <circle cx="50" cy="15" r="3.5" fill="#7F875F" stroke="none" />
+
+              <line x1="15" y1="60" x2="85" y2="60" />
+
+              <line x1="18.4" y1="75" x2="81.6" y2="75" />
+
+              <line x1="25.5" y1="85" x2="74.5" y2="85" />
+            </g>
+          </svg>
+          <div className={styles['header__logo-texts']}>
+            <p className={styles.header__companyName}>TerraAxis</p>
+            <p className={styles.header__slogan}>
+              PRECISION IN EVERY COORDINATE
+            </p>
+          </div>
         </div>
 
         <nav className={styles.nav}>
