@@ -1,0 +1,332 @@
+// InteractiveProcess.module.scss
+
+// Variables
+$color-bg-dark: #1a283b;
+$color-accent: #A7A746;
+$color-accent-hover: #8d8f3a;
+$color-white: #fff;
+$color-white-muted: rgba($color-white, 0.7);
+$color-border-dark: rgba($color-white, 0.2);
+$color-bg-step-details: rgba($color-white, 0.1);
+
+// Mixins
+@mixin sm { @media (min-width: 640px) { @content; } }
+@mixin md { @media (min-width: 768px) { @content; } }
+@mixin lg { @media (min-width: 1024px) { @content; } }
+
+.processSection {
+  width: 100%;
+  background-color: $color-bg-dark;
+  padding: 3rem 0;
+  @include sm { padding: 4rem 0; }
+  @include md { padding: 5rem 0; }
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  @include sm { padding: 0 1.5rem; }
+  @include md { padding: 0 2rem; }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  @include sm { margin-bottom: 3rem; }
+
+  h2 {
+    color: $color-white;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    @include sm { font-size: 2rem; }
+    @include lg { font-size: 3rem; }
+  }
+
+  p {
+    color: $color-white-muted;
+    font-size: 0.875rem;
+    @include sm { font-size: 1rem; }
+  }
+}
+
+.timelineWrapper {
+  margin-bottom: 2rem;
+  @include sm { margin-bottom: 3rem; }
+}
+
+// --- Desktop Timeline ---
+.desktopTimeline {
+  display: none;
+  position: relative;
+  @include md { display: block; }
+}
+
+.connectionLines {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 0.5px;
+  background-color: $color-border-dark;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.iconBox {
+  width: 80px;
+  height: 80px;
+  border-width: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 10;
+  border-style: solid;
+
+  @include lg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+// Окремі класи для іконок (Flat structure for Modules)
+.stepIcon {
+  width: 2rem;
+  height: 2rem;
+  transition: color 0.3s;
+  @include lg { width: 2.5rem; height: 2.5rem; }
+}
+
+.iconActive { color: $color-white; }
+.iconInactive { color: rgba($color-white, 0.4); }
+
+// Окремі класи для заголовків
+.stepTitle {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-bottom: 0.375rem;
+  transition: color 0.3s;
+  @include lg { font-size: 0.875rem; }
+}
+
+.titleCurrent { color: $color-accent; }
+.titleDefault { color: $color-white; }
+
+.stepDuration {
+  font-size: 0.625rem;
+  color: rgba($color-white, 0.6);
+  text-align: center;
+  @include lg { font-size: 0.75rem; }
+}
+
+// --- Mobile Timeline ---
+.mobileTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  @include md { display: none; }
+}
+
+.mobileStepItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.5rem;
+  
+  @include sm { gap: 1rem; padding: 1rem; }
+}
+
+// Mobile States (Top level classes for access)
+.mobileStateCurrent {
+  background-color: $color-accent;
+  color: $color-white;
+  border-color: $color-accent;
+}
+.mobileStateActive {
+  background-color: rgba($color-white, 0.1);
+  color: $color-white;
+  border-color: $color-accent;
+}
+.mobileStateDefault {
+  background-color: rgba($color-white, 0.05);
+  color: $color-white;
+  border-color: $color-border-dark;
+}
+
+.mobileIconBox {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  @include sm { width: 3.5rem; height: 3.5rem; }
+}
+
+.mobileContent {
+  flex: 1;
+
+  h3 {
+    font-size: 0.875rem;
+    margin-bottom: 0.125rem;
+    @include sm { font-size: 1rem; }
+  }
+  
+  p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+}
+
+// --- Active Step Details ---
+.stepDetailsBox {
+  background-color: $color-bg-step-details;
+  border: 1px solid $color-border-dark;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  @include sm { padding: 2rem; }
+  @include lg { padding: 2.5rem; }
+}
+
+.detailsHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  @include sm { gap: 1.5rem; }
+
+  .detailsIconBox {
+    width: 4rem;
+    height: 4rem;
+    background-color: $color-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    @include sm { width: 5rem; height: 5rem; }
+
+    .bigIcon {
+      width: 2rem;
+      height: 2rem;
+      color: $color-white;
+      @include sm { width: 2.5rem; height: 2.5rem; }
+    }
+  }
+
+  .detailsText {
+    flex: 1;
+    h3 {
+      color: $color-white;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      @include sm { font-size: 1.5rem; }
+    }
+    p {
+      color: $color-accent;
+      font-size: 0.875rem;
+      @include sm { font-size: 1rem; }
+    }
+  }
+}
+
+.detailsDescription {
+  color: rgba($color-white, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  @include sm { font-size: 1rem; }
+}
+
+.detailsListTitle {
+  color: $color-white;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  @include sm { font-size: 1.125rem; }
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  .checkIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $color-accent;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  span {
+    color: rgba($color-white, 0.7);
+    font-size: 0.875rem;
+    @include sm { font-size: 1rem; }
+  }
+}
+
+// --- Navigation ---
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $color-border-dark;
+  @include sm { flex-direction: row; }
+}
+
+.navButton {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  
+  @include sm { width: auto; font-size: 1rem; }
+}
+
+.buttonActive {
+  background-color: $color-accent;
+  color: $color-white;
+  &:hover { background-color: $color-accent-hover; }
+}
+
+.buttonDisabled {
+  background-color: rgba($color-white, 0.1);
+  color: rgba($color-white, 0.4);
+  cursor: not-allowed;
+}
+
+.durationLabel {
+  color: rgba($color-white, 0.6);
+  font-size: 0.75rem;
+  @include sm { font-size: 0.875rem; }
+}

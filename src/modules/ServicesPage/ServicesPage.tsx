@@ -3,6 +3,9 @@ import { ServicesDetailSection } from "./modules/components/ServicesDetailSectio
 import { useEffect, useMemo, useState } from "react";
 import { getServices } from "../../api/services";
 import type { Service } from "../../types/service";
+import { InteractiveProcess } from "./modules/components/InteractiveProcess";
+import { ResponsiveFaq } from "./modules/components/FAQ";
+import { Calculator } from "../../components/Calculator";
 
 export const ServicesPage = () => {
     const {serviceSlug} = useParams<{serviceSlug: string}>();
@@ -18,6 +21,10 @@ export const ServicesPage = () => {
         return services.find(s => s.slug === serviceSlug);
     }, [serviceSlug, services]);
     return (
-        <ServicesDetailSection service={service} />
+        <><ServicesDetailSection service={service} />
+        <InteractiveProcess />
+        <ResponsiveFaq />
+        <Calculator />
+        </>
     )
 }
