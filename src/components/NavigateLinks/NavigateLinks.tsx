@@ -77,7 +77,7 @@ export const NavigateLinks = ({
         marginTop: isMenuOpen ? "24px" : undefined,
       }}
     >
-      <NavLink to="/" onClick={onClose} className={getLinkClass} replace={true}>
+      <NavLink to="/" onClick={onClose} className={getLinkClass}>
         ГОЛОВНА
       </NavLink>
 
@@ -108,7 +108,6 @@ export const NavigateLinks = ({
               className={({ isActive }) =>
                 getLinkClass({ isActive, drop: true })
               }
-              replace={true}
             >
               {service.name}
             </NavLink>
@@ -116,7 +115,7 @@ export const NavigateLinks = ({
         </div>
       </div>
 
-      <NavLink to="/about" className={getLinkClass} onClick={onClose} replace={true}>
+      <NavLink to="/about" className={getLinkClass} onClick={onClose}>
         ПРО НАС
       </NavLink>
     </div>
