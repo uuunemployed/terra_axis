@@ -7,14 +7,10 @@ interface FAQItem {
 }
 import svgData from "../../imports/svg-gm0tsg9zx4";
 
-// 2. Вже тут, svgData – це об'єкт { p3808700: "..." }
-// Нам не потрібен рядок const svgPaths = svgData.svgPaths, оскільки svgData вже є тим, що треба.
-
-// Якщо ви хочете, щоб змінна називалася svgPaths:
 const svgPaths = svgData;
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs: FAQItem[] = [
     {

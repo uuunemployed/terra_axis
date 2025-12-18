@@ -1,8 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/terra_axis/"
-})
+  base: "/terra_axis/",
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["global-builtin", "color-functions", "import"],
+      },
+    },
+  },
+});
