@@ -9,8 +9,14 @@ type ServiceItem = {
 };
 
 const services: ServiceItem[] = [
-  { name: "Топографічні та кадастрові зйомки", path: "/service/topographic-cadastral" },
-  { name: "Геодезичні роботи в гірничій промисловості", path: "/service/mining-geodesy" },
+  {
+    name: "Топографічні та кадастрові зйомки",
+    path: "/service/topographic-cadastral",
+  },
+  {
+    name: "Геодезичні роботи в гірничій промисловості",
+    path: "/service/mining-geodesy",
+  },
   {
     name: "Вишукування під реконструкцію та будівництво",
     path: "/service/engineering-geological-surveys",
@@ -21,26 +27,28 @@ const services: ServiceItem[] = [
   },
   { name: "Лабораторний аналіз води", path: "/service/water-analysis" },
   { name: "Буріння свердловин на воду", path: "/service/water-well-drilling" },
-  { name: "3D лазерне сканування будівель", path: "/service/3d-laser-scanning-complex" },
+  {
+    name: "3D лазерне сканування будівель",
+    path: "/service/3d-laser-scanning-complex",
+  },
   {
     name: "3D сканування фасаду",
     path: "/service/3d-scanning-and-industrial-inventory",
   },
 ];
 
-export const NavigateLinks = ({ isMenuOpen }: { isMenuOpen?: boolean }) => {
+export const NavigateLinks = ({
+  isMenuOpen,
+  onClose,
+}: {
+  isMenuOpen?: boolean;
+  onClose?: () => void;
+}) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
   const location = useLocation();
-  const isAnyServiceActive = location.pathname.startsWith("/services");
-
-  useEffect(() => {
-    const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
+  const isAnyServiceActive = location.pathname.startsWith("/service");
 
   const getLinkClass = ({
     isActive,
@@ -53,6 +61,13 @@ export const NavigateLinks = ({ isMenuOpen }: { isMenuOpen?: boolean }) => {
       [styles["is-active"]]: isActive,
     });
 
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   return (
     <div
       className={styles.nav__links}
@@ -62,11 +77,10 @@ export const NavigateLinks = ({ isMenuOpen }: { isMenuOpen?: boolean }) => {
         marginTop: isMenuOpen ? "24px" : undefined,
       }}
     >
-      <NavLink to="/" className={getLinkClass}>
+      <NavLink to="/" onClick={onClose} className={getLinkClass}>
         ГОЛОВНА
       </NavLink>
 
-      {/* ПОСЛУГИ */}
       <div
         className={styles.dropdown}
         onMouseEnter={() => isDesktop && setIsServicesOpen(true)}
@@ -80,25 +94,28 @@ export const NavigateLinks = ({ isMenuOpen }: { isMenuOpen?: boolean }) => {
         >
           ПОСЛУГИ
         </button>
-
-        {(isServicesOpen || isDesktop) && (
-          <div className={styles.dropdown__menu}>
-            {services.map((service) => (
-              <NavLink
-                key={service.path}
-                to={service.path}
-                className={({ isActive }) =>
-                  getLinkClass({ isActive, drop: true })
-                }
-              >
-                {service.name}
-              </NavLink>
-            ))}
-          </div>
-        )}
+        <div
+          className={classNames(styles.dropdown__menu, {
+            [styles["is-open"]]:
+              isServicesOpen || (isDesktop && isServicesOpen),
+          })}
+        >
+          {services.map((service) => (
+            <NavLink
+              key={service.path}
+              to={service.path}
+              onClick={onClose}
+              className={({ isActive }) =>
+                getLinkClass({ isActive, drop: true })
+              }
+            >
+              {service.name}
+            </NavLink>
+          ))}
+        </div>
       </div>
 
-      <NavLink to="/about" className={getLinkClass}>
+      <NavLink to="/about" className={getLinkClass} onClick={onClose}>
         ПРО НАС
       </NavLink>
     </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Building2, Calendar, CheckCircle, Mountain } from 'lucide-react';
+import { MapPin, Building2, Calendar, CheckCircle } from 'lucide-react';
 import styles from "./WorkRegions.module.scss";
 import { CalculatorButton } from "../../../../components/CalculatorButton";
 
@@ -109,8 +109,7 @@ export function WorkRegions() {
                 : ""
             }`}
           >
-            <Mountain className={styles["work-regions__tabs-icon"]} />
-            ЗАКАРПАТТЯ
+            МІСТА
           </button>
         </div>
 

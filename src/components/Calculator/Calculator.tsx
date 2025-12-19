@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { sendMessageToTelegram } from '../../telegram'
 import {
-  Calculator as CalcIcon,
+  // Calculator as CalcIcon,
   User,
   Phone,
   Mail,
-  MapPin,
-  CheckCircle,
+  // MapPin,
+  // CheckCircle,
 } from "lucide-react";
 import styles from "./Calculator.module.scss";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 export function Calculator() {
-  const [activeTab, setActiveTab] = useState<"consultation" | "calculator">(
-    "consultation"
-  );
+  // const [activeTab, setActiveTab] = useState<"consultation" | "calculator">(
+  //   "consultation"
+  // );
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,13 +22,13 @@ export function Calculator() {
     email: "",
   });
 
-  const [calcData, setCalcData] = useState({
-    service: "",
-    area: "",
-    location: "",
-  });
+  // const [calcData, setCalcData] = useState({
+  //   service: "",
+  //   area: "",
+  //   location: "",
+  // });
 
-  const [estimatedPrice, setEstimatedPrice] = useState<number | null>(null);
+  // const [estimatedPrice, setEstimatedPrice] = useState<number | null>(null);
   
   const [isSending, setIsSending] = useState(false)
 
@@ -41,39 +41,38 @@ export function Calculator() {
       return;
     }
 
-    setIsSending(true); // Вмикаємо "завантаження"
+    setIsSending(true);
 
-    // Викликаємо сервіс
     const success = await sendMessageToTelegram({
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
     });
 
-    setIsSending(false); // Вимикаємо "завантаження"
+    setIsSending(false); 
 
     if (success) {
       alert("Дякуємо! Наш фахівець зв'яжеться з вами найближчим часом.");
-      setFormData({ name: "", phone: "", email: "" }); // Очищаємо форму
+      setFormData({ name: "", phone: "", email: "" });
     } else {
       alert("Виникла помилка при відправці. Спробуйте пізніше або зателефонуйте нам.");
     }
   };
 
-  const handleCalculate = (e: React.FormEvent) => {
-    e.preventDefault();
-    const basePrice =
-      {
-        topography: 150,
-        cadastral: 200,
-        geodetic: 180,
-        engineering: 220,
-      }[calcData.service] || 0;
+  // const handleCalculate = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const basePrice =
+  //     {
+  //       topography: 150,
+  //       cadastral: 200,
+  //       geodetic: 180,
+  //       engineering: 220,
+  //     }[calcData.service] || 0;
 
-    const area = parseFloat(calcData.area) || 0;
-    const estimated = basePrice * area;
-    setEstimatedPrice(estimated);
-  };
+  //   const area = parseFloat(calcData.area) || 0;
+  //   const estimated = basePrice * area;
+  //   setEstimatedPrice(estimated);
+  // };
 
   return (
     <section id="calculator" className={styles.calculator}>
@@ -103,7 +102,7 @@ export function Calculator() {
             </div>
           </div>
           <div className={styles.right}>
-            <div className={styles.tabs}>
+            {/* <div className={styles.tabs}>
               <button
                 className={`${styles.tab} ${
                   activeTab === "consultation" ? styles.tab_active : ""
@@ -121,9 +120,9 @@ export function Calculator() {
               >
                 ОНЛАЙН КАЛЬКУЛЯТОР
               </button>
-            </div>
+            </div> */}
 
-            {activeTab === "consultation" && (
+            {/* {activeTab === "consultation" && ( */}
               <form onSubmit={handleConsultationSubmit} className={styles.form}>
                 <div className={styles.field}>
                   <label className={styles.label}>Ваше ім'я *</label>
@@ -184,9 +183,8 @@ export function Calculator() {
                   {isSending ? "ВІДПРАВКА..." : "ВІДПРАВИТИ"}
                 </button>
               </form>
-            )}
 
-            {activeTab === "calculator" && (
+            {/* {activeTab === "calculator" && (
               <form onSubmit={handleCalculate} className={styles.form}>
                 <div className={styles.field}>
                   <label className={styles.label}>Тип послуги *</label>
@@ -268,7 +266,7 @@ export function Calculator() {
                   </div>
                 )}
               </form>
-            )}
+            )} */}
           </div>
         </div>
       </div>

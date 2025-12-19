@@ -6,7 +6,6 @@ export interface TelegramMsgData {
   name: string;
   phone: string;
   email?: string;
-  // Додамо опціональні поля, якщо захочеш слати дані з калькулятора
   service?: string;
   area?: string;
   location?: string;

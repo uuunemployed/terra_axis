@@ -94,9 +94,8 @@ export function Footer() {
           <div className={styles.block}>
             <h3 className={styles.blockTitle}>ПОСЛУГИ</h3>
             {services.map((service) => {
-              console.log(service);
               return (
-                <Link to={`service/${service.slug}`} className={styles.link}>
+                <Link to={`service/${service.slug}`} className={styles.link} key={service.title}>
                   {service.title}
                 </Link>
               );
@@ -107,7 +106,7 @@ export function Footer() {
             <h3 className={styles.blockTitle}>КОНТАКТИ</h3>
             <div className={styles.contact}>
               <div className={styles.info}>
-                <a href="tel:+380000000000">+38 (050) 785-05-11</a>
+                <a href="tel:+380507850511">+38 (050) 785-05-11</a>
                 <a href="mailto:info@terraaxis.com">info@terraaxis.com</a>
               </div>
               <div className={styles.address}>м. Ужгород</div>
