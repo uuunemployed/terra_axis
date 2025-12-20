@@ -1,6 +1,5 @@
 const BOT_TOKEN = "8535679754:AAEzXPGSyW1dMV1KVm6Vlfofl2UmK6Fl9So"; 
-const CHAT_ID = "1149871757";
-
+const CHAT_IDS = ["391085885", "1759804672", "1149871757"];
 
 export interface TelegramMsgData {
   name: string;
@@ -22,25 +21,30 @@ export const sendMessageToTelegram = async (formData: TelegramMsgData): Promise<
   `;
 
   try {
-    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: text,
-        parse_mode: 'Markdown',
-      }),
+    const requests = CHAT_IDS.map(async (chatId) => {
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+          parse_mode: 'Markdown',
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(`Error for Chat ID ${chatId}:`, errorData);
+        return false;
+      }
+      return true;
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Telegram API Error:', errorData);
-      return false;
-    }
+    const results = await Promise.all(requests);
+    return results.some(res => res === true);
 
-    return true;
   } catch (error) {
     console.error('Network Error:', error);
     return false;
