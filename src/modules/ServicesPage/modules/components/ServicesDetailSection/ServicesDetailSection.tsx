@@ -194,9 +194,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                       <span>info@terraaxis.com</span>
                     </a>
                   </div>
-                  <button className={styles.ctaButton}>
-                    Замовити консультацію
-                  </button>
+                  <CalculatorButton text="Замовити консультацію" bg="#a7a746" isScroll={true} padding="1rem" width="100%" fontSize="1rem"/>
 
                   <p className={styles.disclaimer}>
                     Безкоштовна консультація та розрахунок вартості протягом 15 хвилин

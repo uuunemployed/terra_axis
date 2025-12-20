@@ -9,7 +9,7 @@
     padding: 5rem 0;
   }
 
-  @include onDesktop { 
+  @include onDesktop {
     padding: 6rem 0;
   }
 
@@ -29,7 +29,7 @@
     gap: 2rem;
     align-items: center;
 
-    @include onDesktop { 
+    @include onDesktop {
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
@@ -37,15 +37,46 @@
   &__link {
     display: flex;
     text-decoration: none;
-    width: 70%;
-    justify-content: start;
-    margin-bottom: 20px;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    gap: 8px;
+    color: #a7a746;
+    font-size: 12px;
+    font-weight: 700;
+
+    border: 1px solid #a7a746;
+    padding: 6px 10px;
+    white-space: nowrap;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #a7a746;
+      transition: color 0.3s;
+    }
+
+    & > svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @include onTablet {
+      padding: 10px 14px;
+    }
+
+        @include onTablet {
+      padding: 12px 16px;
+    }
   }
 
   &__imageCol {
     order: 2;
 
-    @include onDesktop { 
+    @include onDesktop {
       order: 1;
     }
   }
@@ -53,7 +84,7 @@
   &__contentCol {
     order: 1;
 
-    @include onDesktop { 
+    @include onDesktop {
       order: 2;
     }
   }
@@ -71,7 +102,7 @@
       height: 400px;
     }
 
-    @include onDesktop { 
+    @include onDesktop {
       height: 500px;
     }
   }
@@ -94,7 +125,7 @@
       margin-bottom: 1.5rem;
     }
 
-    @include onDesktop { 
+    @include onDesktop {
       font-size: 2.5rem;
     }
   }
@@ -134,7 +165,7 @@
       font-size: 2.5rem;
     }
 
-    @include onDesktop { 
+    @include onDesktop {
       font-size: 3rem;
     }
   }

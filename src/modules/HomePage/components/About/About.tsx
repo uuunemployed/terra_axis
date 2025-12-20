@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { CalculatorButton } from "../../../../components/CalculatorButton";
 import styles from "./About.module.scss";
+import { ArrowRight } from "lucide-react";
 
 export function About() {
   return (
     <section className={styles.about}>
       <div className={styles.about__container}>
         <div className={styles.about__grid}>
-          
           <div className={styles.about__imageCol}>
             <div className={styles.about__imageWrapper}>
               <img
@@ -25,8 +24,9 @@ export function About() {
             </h2>
 
             <p className={styles.about__text}>
-              Компанія TerraAxis спеціалізується на наданні професійних геодезічних
-              послуг з 2010 року. За цей час ми успішно реалізували понад 500 проектів.
+              Компанія TerraAxis спеціалізується на наданні професійних
+              геодезічних послуг з 2010 року. За цей час ми успішно реалізували
+              понад 500 проектів.
             </p>
 
             <p className={styles.about__text}>
@@ -34,10 +34,10 @@ export function About() {
               володіють сучасним обладнанням та новітніми технологіями.
             </p>
 
-            <Link to='/about' className={styles.about__link}>
-              <CalculatorButton text="Детальніше про нас" padding="1.5rem" width="100%" fontSize="18px" />
+            <Link to="/about" className={styles.about__link}>
+              Детальніше про нас
+              <ArrowRight />
             </Link>
-            
 
             <div className={styles.about__stats}>
               <div className={styles.about__stat}>
@@ -56,7 +56,6 @@ export function About() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

@@ -44,7 +44,6 @@
     font-size: 7px;
     font-weight: 400;
     letter-spacing: 1px;
-    white-space: nowrap;
 
     @include onTablet {
       font-size: 10px;
@@ -155,15 +154,14 @@
   position: fixed;
   inset: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 64px);
   margin-top: 64px;
 
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 64px);
-  justify-content: space-between;
+  gap: 48px;
 
-  padding-block: 24px 64px;
+  padding-block: 24px 36px;
 
   background-color: #1a283b;
   z-index: 100;
@@ -197,7 +195,7 @@
 }
 
 .nav__bottom {
-  border-top: 1px solid #A7A7461A;
+  border-top: 1px solid #a7a7461a;
   padding-top: 24px;
   width: 100%;
   display: flex;
