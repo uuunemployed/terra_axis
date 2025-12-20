@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { CalculatorButton } from "../../../../components/CalculatorButton";
 import styles from "./About.module.scss";
 
 export function About() {
@@ -31,6 +33,11 @@ export function About() {
               Наша команда складається з висококваліфікованих спеціалістів, які
               володіють сучасним обладнанням та новітніми технологіями.
             </p>
+
+            <Link to='/about' className={styles.about__link}>
+              <CalculatorButton text="Детальніше про нас" padding="1.5rem" width="100%" fontSize="18px" />
+            </Link>
+            
 
             <div className={styles.about__stats}>
               <div className={styles.about__stat}>

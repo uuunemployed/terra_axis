@@ -5,6 +5,7 @@ import { useTheme } from "../../shared/hooks/useTheme";
 import styles from "./Header.module.scss";
 import { NavigateLinks } from "../NavigateLinks";
 import { CalculatorButton } from "../CalculatorButton";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -45,7 +46,7 @@ export function Header() {
         }`}
       >
         <div className={styles.header__container}>
-          <div className={styles.header__logo}>
+          <Link to="/" className={styles.header__logo}>
             <svg
               width="40"
               height="48"
@@ -75,7 +76,7 @@ export function Header() {
                 PRECISION IN EVERY COORDINATE
               </p>
             </div>
-          </div>
+          </Link>
 
           <nav className={styles.nav}>
             <NavigateLinks />

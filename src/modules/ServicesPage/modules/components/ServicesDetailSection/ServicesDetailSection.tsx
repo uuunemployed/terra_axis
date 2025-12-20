@@ -35,6 +35,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                 <h1 className={styles.title}>
                   {service.title}
                 </h1>
+
                 <p className={styles.subtitle}>
                   {service.subtitle}
                 </p>
@@ -45,8 +46,10 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
 
             <div className={styles.gridWrapper}>
 
+  
               <div className={styles.leftColumn}>
 
+    
                 <div>
                   <h2 className={styles.sectionTitle}>
                     Що таке {service.title}?
@@ -56,6 +59,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </p>
                 </div>
 
+            
                 {service.purpose && (
                   <div className={styles.purposeBox}>
                     <h3 className={styles.purposeTitle}>
@@ -72,6 +76,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
+                
                 {service.types && service.types.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -93,6 +98,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
+                
                 {service.features && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -104,6 +110,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
+                
                 {service.application_areas && service.application_areas.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -119,6 +126,8 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                     </ul>
                   </div>
                 )}
+
+          
                 {service.includes && service.includes.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -137,6 +146,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
+          
                 {service.process && service.process.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -145,9 +155,11 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                     <div className={styles.processTimeline}>
                       {service.process.map((step) => (
                         <div key={step.step} className={styles.processStep}>
+          
                           <div className={styles.stepBubble}>
                             {step.step}
                           </div>
+
                           <div>
                             <h4>{step.title}</h4>
                             <p>{step.description}</p>
@@ -158,7 +170,6 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
               </div>
-
               <div className={styles.sidebarWrapper}>
                 <div className={styles.sidebarCard}>
                   <h3>{service.title}</h3>
@@ -167,6 +178,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                     <div className={styles.priceLabel}>Ціна</div>
                     <div className={styles.priceValue}>від 3000 грн</div>
                   </div>
+
 
                   <div className={styles.contactLinks}>
                     <a href="tel:+380123456789" className={styles.contactLink}>
@@ -182,8 +194,9 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                       <span>info@terraaxis.com</span>
                     </a>
                   </div>
-                  
-                  <CalculatorButton text="Замовити консультацію" padding="1rem 0" width="100%" bg="#8d8f3a" isScroll={true} />
+                  <button className={styles.ctaButton}>
+                    Замовити консультацію
+                  </button>
 
                   <p className={styles.disclaimer}>
                     Безкоштовна консультація та розрахунок вартості протягом 15 хвилин
