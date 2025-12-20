@@ -69,7 +69,7 @@ const steps = [
 ];
 
 export function InteractiveProcess() {
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(1);
 
   const goToPrevious = () => {
     if (activeStep > 1) setActiveStep(activeStep - 1);

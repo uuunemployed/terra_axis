@@ -9,7 +9,8 @@ $light: (
   title2-color: #1a283b,
   secondText-color: #4a5565,
   border-color: #e5e7eb,
-  select-color: #F9FAFB,
+  select-color: #f9fafb,
+  sidebar-color: #d7dbbd,
 );
 
 $dark: (
@@ -23,9 +24,9 @@ $dark: (
   title2-color: #ffffff,
   secondText-color: #d7dbbd,
   border-color: #a7a74633,
-  select-color: #1A283B,
+  select-color: #1a283b,
+  sidebar-color: #0f1821,
 );
-
 
 :root {
   @each $var, $value in $light {

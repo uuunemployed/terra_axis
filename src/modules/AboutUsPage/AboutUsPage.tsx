@@ -7,8 +7,8 @@ import styles from './AboutUs.module.scss';
 
 export function AboutUsPage() {
   const stats = [
-    { number: '200+', label: 'Виконаних проєктів' },
-    { number: '4+', label: 'Роки досвіду' },
+    { number: '300+', label: 'Виконаних проєктів' },
+    { number: '5+', label: 'Роки досвіду' },
     { number: '100%', label: 'Задоволених клієнтів' },
     { number: '24/7', label: 'Підтримка' }
   ];
@@ -59,13 +59,10 @@ export function AboutUsPage() {
     }
   ];
 
-  // Функціонал, який раніше був у whileHover/initial/animate, тепер забезпечується CSS-класами та переходами.
 
   return (
     <div className={styles.aboutUs}>
 
-      
-      {/* Hero Section */}
       <section className={styles.aboutUs__hero}>
         <div className={styles.aboutUs__container}>
           <div className={styles.aboutUs__header}>
@@ -78,7 +75,6 @@ export function AboutUsPage() {
             </p>
           </div>
 
-          {/* Stats */}
           <div className={styles.aboutUs__stats}>
             {stats.map((stat, index) => (
               <div
@@ -97,11 +93,9 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Main Content */}
       <section className={styles.aboutUs__content}>
-        <div className={styles.aboutUs__container}>
+        <div className={`${styles.aboutUs__container} ${styles.aboutUs__container2}`}>
           <div className={styles.aboutUs__grid}>
-            {/* Left: Text Content */}
             <div className={styles.aboutUs__textContent}>
               <h2 className={styles.aboutUs__heading}>
                 Хто ми такі?
@@ -123,7 +117,6 @@ export function AboutUsPage() {
               </div>
             </div>
 
-            {/* Right: Image Placeholder */}
             <div className={styles.aboutUs__imagePlaceholder}>
               <div className={styles.aboutUs__imageOverlay} />
               <div className={styles.aboutUs__imageContent}>
@@ -137,7 +130,6 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* What Client Gets */}
       <section className={styles.aboutUs__benefits}>
         <div className={styles.aboutUs__container}>
           <div className={styles.aboutUs__sectionHeader}>
@@ -171,7 +163,6 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Our Principles */}
       <section className={styles.aboutUs__principles}>
         <div className={styles.aboutUs__container}>
           <div className={styles.aboutUs__sectionHeader}>
@@ -186,7 +177,6 @@ export function AboutUsPage() {
                 key={index}
                 className={styles.aboutUs__principleItem}
               >
-                {/* Accent bar */}
                 <div className={styles.aboutUs__principleAccentBar} />
                 
                 <principle.icon className={styles.aboutUs__principleIcon} />
@@ -202,9 +192,8 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Quote Section */}
       <section className={styles.aboutUs__quote}>
-        <div className={styles.aboutUs__container}>
+        <div className={`${styles.aboutUs__container} ${styles.aboutUs__container3}`}>
           <div className={styles.aboutUs__quoteContent}>
             <div className={styles.aboutUs__quoteIcon}>"</div>
             <p className={styles.aboutUs__quoteText}>
@@ -217,7 +206,6 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Final Section */}
       <section className={styles.aboutUs__final}>
         <div className={styles.aboutUs__container}>
           <div className={styles.aboutUs__finalContent}>
@@ -227,12 +215,12 @@ export function AboutUsPage() {
             <p className={styles.aboutUs__finalText}>
               Це партнерство, яке допомагає впевнено рухатись від ідеї до реалізації
             </p>
-            <a
+            {/* <a
               href="#calculator"
               className={styles.aboutUs__finalButton}
             >
               РОЗПОЧАТИ СПІВПРАЦЮ
-            </a>
+            </a> */}
           </div>
         </div>
       </section>

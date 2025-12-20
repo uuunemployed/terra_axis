@@ -5,14 +5,16 @@ export const CalculatorButton = ({
   isScroll,
   padding,
   bg,
+  width,
 }: {
   text: string;
   isScroll?: boolean;
   padding?: string;
   bg?: string;
+  width?: string;
 }) => {
   const scrollToCalculator = () => {
-    console.log(true)
+    console.log(true);
     const element = document.getElementById("calculator");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -23,7 +25,12 @@ export const CalculatorButton = ({
     <button
       onClick={() => isScroll && scrollToCalculator()}
       className={style["main-button"]}
-      style={{ padding: padding, backgroundColor: bg && '#a7a746', color: bg && '#ffffff'}}
+      style={{
+        padding: padding,
+        backgroundColor: bg && "#a7a746",
+        color: bg && "#ffffff",
+        width: width,
+      }}
     >
       {text}
     </button>

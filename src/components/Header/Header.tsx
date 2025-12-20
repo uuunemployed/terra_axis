@@ -119,16 +119,7 @@ export function Header() {
         }`}
       >
         <NavigateLinks onClose={() => setIsMenuOpen(false)} />
-        <div
-          style={{
-            borderTop: "1px solid #A7A7461A",
-            paddingTop: "24px",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-          }}
-        >
+        <div className={styles.nav__bottom}>
           <div className={styles.nav__schedule}>
             <Clock className={styles.nav__icon} />
             <span className={styles.nav__text}>Пн-Пт: 9:00 - 18:00</span>

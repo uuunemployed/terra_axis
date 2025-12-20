@@ -12,28 +12,23 @@ export interface ServiceProcessStep {
   description: string;
 }
 
-// Тип для об'єкта "purpose" (Для чого потрібно)
 export interface ServicePurpose {
   title: string;
   items: string[];
 }
 
-// Головний тип послуги
 export interface Service {
   id: number;
-  slug: string;           // Унікальний URL-ідентифікатор (наприклад, 'mining-geodesy')
-  title: string;          // H1 заголовок
-  definition: string;     // Текст "Що таке..."
+  slug: string;           
+  title: string;          
+  definition: string;
+  image: string;
+  subtitle: string;
   
-  purpose: ServicePurpose; // Об'єкт з пунктами призначення
-  
-  types: ServiceType[];    // Масив видів робіт
-  
-  features: string;        // Текстовий опис особливостей
-  
-  application_areas: string[]; // Масив сфер застосування
-  
-  includes: string[];      // Масив "Що включає послуга"
-  
-  process: ServiceProcessStep[]; // Масив кроків виконання
+  purpose: ServicePurpose;
+  types: ServiceType[];  
+  features: string; 
+  application_areas: string[]; 
+  includes: string[];  
+  process: ServiceProcessStep[]; 
 }

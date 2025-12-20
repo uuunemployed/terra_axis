@@ -6,6 +6,7 @@ import type { Service } from "../../types/service";
 import { InteractiveProcess } from "./modules/components/InteractiveProcess";
 import { Calculator } from "../../components/Calculator";
 import { FAQ } from "../../components/FAQ";
+import { Main } from "../../components/Main";
 
 export const ServicesPage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -22,11 +23,11 @@ export const ServicesPage = () => {
     return services.find((s) => s.slug === serviceSlug);
   }, [serviceSlug, services]);
   return (
-    <>
+    <Main>
       <ServicesDetailSection service={service} />
       <InteractiveProcess />
       <FAQ />
       <Calculator />
-    </>
+    </Main>
   );
 };

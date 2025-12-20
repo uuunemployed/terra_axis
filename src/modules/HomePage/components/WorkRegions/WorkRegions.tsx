@@ -10,28 +10,28 @@ export function WorkRegions() {
     {
       name: "Закарпатська область",
       projects: 48,
-      since: "2010",
+      since: "2020",
       cities: ["Ужгород", "Мукачево", "Хуст", "Берегово", "Рахів", "Тячів"],
       highlight: true,
     },
     {
       name: "Львівська область",
       projects: 52,
-      since: "2011",
+      since: "2020",
       cities: ["Львів", "Дрогобич", "Стрий", "Червоноград", "Самбір"],
       highlight: false,
     },
     {
       name: "Київська область",
       projects: 40,
-      since: "2013",
+      since: "2020",
       cities: ["м.Київ", "Біла Цірква", "Яготин"],
       highlight: false,
     },
     {
       name: "Тернопільська область",
       projects: 32,
-      since: "2015",
+      since: "2020",
       cities: ["Тернопіль", "Чортків", "Кременець", "Бережани"],
       highlight: false,
     },
@@ -210,7 +210,7 @@ export function WorkRegions() {
                 Закарпаття - наш спеціалізований регіон
               </h3>
               <p className={styles["work-regions__zakarpattia-hero-text"]}>
-                З 2010 року реалізовано {zakarpattiaTotal}+ проектів
+                З 2020 року реалізовано {zakarpattiaTotal}+ проектів
               </p>
             </div>
             <div className={styles["work-regions__zakarpattia-grid"]}>

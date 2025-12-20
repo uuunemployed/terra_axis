@@ -1,14 +1,6 @@
 @use "/src/styles/mixins" as *;
 @use "/src/styles/colors" as *;
 
-// $color-bg-section: #f9faf8;
-// $color-bg-white: #ffffff;
-// $color-bg-hover: #f9fafb;
-// $color-text-dark: #1a283b;
-// $color-text-muted: #4a5565;
-// $color-accent: #A7A746;
-// $color-border: #e5e7eb;
-
 .faqSection {
   width: 100%;
   background-color: var(--bg2-color);

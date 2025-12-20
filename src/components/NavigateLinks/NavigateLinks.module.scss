@@ -6,8 +6,8 @@
     flex-direction: column;
     gap: 16px;
 
-    @include onTablet {
-      gap: 48px;
+    @include onDesktop {
+      gap: 36px;
       flex-direction: row;
     }
   }
@@ -19,28 +19,35 @@
     position: relative;
     line-height: 36px;
     width: fit-content;
+    white-space: nowrap;
 
     @include onTablet {
-      line-height: 64px;
+      line-height: 48px;
       font-size: 14px;
+    }
+
+    @include onDesktop {
+      line-height: 64px;
     }
 
     &:hover {
       color: #a7a746;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: #a7a746;
+    @include onDesktop {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #a7a746;
 
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
     }
 
     &:hover::after {
