@@ -15,30 +15,24 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
     ) : (
       <><section className={styles.hero}>
           <div className={styles.imageContainer}>
-            {/* Background Image */}
             <img
               src={service.image}
               alt="Геодезичні роботи"
               className={styles.image} />
 
-            {/* Dark Gradient Overlay */}
             <div className={styles.overlay}></div>
 
-            {/* Text Content */}
             <div className={styles.contentWrapper}>
               <div className={styles.container}>
-                {/* Back Button */}
                 <Link to='/' className={styles.backBtn}>
                   <ArrowLeft className={styles.icon} />
                   <span>Повернутися до послуг</span>
                 </Link>
 
-                {/* Main Heading */}
                 <h1 className={styles.title}>
                   {service.title}
                 </h1>
 
-                {/* Subheading */}
                 <p className={styles.subtitle}>
                   {service.subtitle}
                 </p>
@@ -49,10 +43,10 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
 
             <div className={styles.gridWrapper}>
 
-              {/* Left Column - Main Content */}
+  
               <div className={styles.leftColumn}>
 
-                {/* 1. Definition (Що це таке) */}
+    
                 <div>
                   <h2 className={styles.sectionTitle}>
                     Що таке {service.title}?
@@ -62,7 +56,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </p>
                 </div>
 
-                {/* 2. Purpose (Для чого потрібно) */}
+            
                 {service.purpose && (
                   <div className={styles.purposeBox}>
                     <h3 className={styles.purposeTitle}>
@@ -79,7 +73,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
-                {/* 3. Types (Види робіт) */}
+                
                 {service.types && service.types.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -101,7 +95,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
-                {/* 4. Features (Особливості) */}
+                
                 {service.features && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -113,7 +107,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
-                {/* 5. Application Areas (Область застосування) */}
+                
                 {service.application_areas && service.application_areas.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -130,7 +124,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
-                {/* 6. Includes (Що включає послуга) */}
+          
                 {service.includes && service.includes.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -149,7 +143,7 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
 
-                {/* 7. Process (Процес виконання) */}
+          
                 {service.process && service.process.length > 0 && (
                   <div>
                     <h3 className={styles.sectionTitle}>
@@ -158,12 +152,11 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                     <div className={styles.processTimeline}>
                       {service.process.map((step) => (
                         <div key={step.step} className={styles.processStep}>
-                          {/* Number Bubble */}
+          
                           <div className={styles.stepBubble}>
                             {step.step}
                           </div>
 
-                          {/* Content */}
                           <div>
                             <h4>{step.title}</h4>
                             <p>{step.description}</p>
@@ -174,19 +167,16 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                   </div>
                 )}
               </div>
-
-              {/* Right Column - Sticky Sidebar */}
               <div className={styles.sidebarWrapper}>
                 <div className={styles.sidebarCard}>
                   <h3>{service.title}</h3>
 
-                  {/* Price */}
                   <div className={styles.priceBlock}>
                     <div className={styles.priceLabel}>Ціна</div>
                     <div className={styles.priceValue}>від 3000 грн</div>
                   </div>
 
-                  {/* Contact Info */}
+
                   <div className={styles.contactLinks}>
                     <a href="tel:+380123456789" className={styles.contactLink}>
                       <div className={styles.iconWrapper}>
@@ -201,8 +191,6 @@ export const ServicesDetailSection: React.FC<Props> = ({ service }) => {
                       <span>info@terraaxis.com</span>
                     </a>
                   </div>
-
-                  {/* CTA Button */}
                   <button className={styles.ctaButton}>
                     Замовити консультацію
                   </button>

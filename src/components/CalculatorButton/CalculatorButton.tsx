@@ -5,11 +5,15 @@ export const CalculatorButton = ({
   isScroll,
   padding,
   bg,
+  width,
+  fontSize,
 }: {
   text: string;
   isScroll?: boolean;
   padding?: string;
   bg?: string;
+  width?: string;
+  fontSize?: string
 }) => {
   const scrollToCalculator = () => {
     console.log(true)
@@ -23,7 +27,7 @@ export const CalculatorButton = ({
     <button
       onClick={() => isScroll && scrollToCalculator()}
       className={style["main-button"]}
-      style={{ padding: padding, backgroundColor: bg && '#a7a746', color: bg && '#ffffff'}}
+      style={{ padding: padding, backgroundColor: bg && '#a7a746', color: bg && '#ffffff', width: width, fontSize: fontSize}}
     >
       {text}
     </button>
